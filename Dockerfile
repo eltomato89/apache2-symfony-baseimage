@@ -1,5 +1,8 @@
 FROM php:8.0.8-apache-buster
 
+ADD 000-default.conf /etc/apache2/sites-enabled/
+ADD apache2.conf /etc/apache2
+
 RUN a2enmod rewrite
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       procps \
